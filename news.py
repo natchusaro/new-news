@@ -1,0 +1,20 @@
+importnumpyasnp
+importpandasaspd
+importos
+print(os.listdir("../input"))
+['articles3.csv', 'articles1.csv', 'articles2.csv']
+a1=pd.read_csv('../input/articles1.csv',index_col=0)
+a2=pd.read_csv('../input/articles2.csv',index_col=0)
+a3=pd.read_csv('../input/articles3.csv',index_col=0)
+df=pd.concat([a1,a2,a3])
+dela1,a2,a3
+df.head()
+importmatplotlib.pyplotasplt
+plt.figure(figsize=(10,7))
+df.publication.value_counts().plot(kind='bar')
+doc=df.loc[0,'content']
+importspacy
+fromspacyimportdisplacy
+nlp=spacy.load('en')
+doc=nlp(doc)
+displacy.render(doc,style='ent',jupyter=True)
